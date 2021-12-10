@@ -10,7 +10,7 @@ const CREATE_USER_MUTATION = gql`
   }
 `
 
-const NewUser = () => {
+const HomePage = () => {
   const [createUser, { loading, error }] = useMutation(CREATE_USER_MUTATION, {
     onCompleted: () => {
       toast.success('Code sent')
@@ -38,4 +38,4 @@ const NewUser = () => {
   )
 }
 
-export default NewUser
+export default HomePage
