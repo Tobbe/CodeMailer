@@ -5,6 +5,7 @@ export const schema = gql`
     email: String!
     fullName: String!
     heardAbout: String!
+    code: String
   }
 
   input CreateUserInput {

@@ -27,7 +27,7 @@ async function sendEmailCode(emailAddress, code) {
 
   // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
+    from: '"Tobbe Lundberg" <tobbe@tlundberg.com>',
     to: [emailAddress], // list of receivers
     subject: 'Welcome to CodeMailer', // Subject line
     text: 'Your code is ' + code, // plain text body
@@ -43,7 +43,7 @@ export const createUser = async ({ input }) => {
 
   try {
     user = await db.user.create({
-      data: input,
+      data: { ...input, code },
     })
     console.log('user created', user)
 

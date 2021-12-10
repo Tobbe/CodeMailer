@@ -16,4 +16,5 @@ model User {
   email      String   @unique
   fullName   String
   heardAbout String
+  code       String?
 }
