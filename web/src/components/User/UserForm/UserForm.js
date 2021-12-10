@@ -1,3 +1,4 @@
+import { useForm } from 'react-hook-form'
 import {
   Form,
   FormError,
@@ -9,13 +10,15 @@ import {
 } from '@redwoodjs/forms'
 
 const UserForm = (props) => {
+  const formMethods = useForm()
+
   const onSubmit = (data) => {
-    props.onSave(data, props?.user?.id)
+    props.onSave(data, () => formMethods.reset())
   }
 
   return (
     <div className="rw-form-wrapper">
-      <Form onSubmit={onSubmit} error={props.error}>
+      <Form formMethods={formMethods} onSubmit={onSubmit} error={props.error}>
         <FormError
           error={props.error}
           wrapperClassName="rw-form-error-wrapper"

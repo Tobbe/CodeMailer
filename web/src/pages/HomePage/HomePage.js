@@ -20,8 +20,14 @@ const HomePage = () => {
     },
   })
 
-  const onSave = (input) => {
-    createUser({ variables: { input } })
+  const onSave = (input, onSuccess, onError) => {
+    createUser({ variables: { input } }).then(({ data, errors }) => {
+      if (errors || !data) {
+        onError?.(errors)
+      } else {
+        onSuccess?.(data)
+      }
+    })
   }
 
   return (
