@@ -76,7 +76,7 @@ const UserForm = (props) => {
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
-            Send me a code
+            {props.loading ? 'Sending...' : 'Send me a code'}
           </Submit>
         </div>
       </Form>
